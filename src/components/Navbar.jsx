@@ -1,16 +1,20 @@
-export default function Navbar({ onLogout }) {
+export default function Navbar({ user, onLogout }) {
   return (
-    <header className="flex items-center justify-between px-8 py-5 border-b border-zinc-800">
-      <h1 className="text-2xl font-semibold tracking-tight">
-        Text to Speech
-      </h1>
+    <header className="flex justify-between items-center px-6 py-4 bg-black text-white">
+      <h1 className="text-lg font-semibold">Text to Speech</h1>
 
-      <button
-        onClick={onLogout}
-        className="text-sm text-zinc-400 hover:text-white transition"
-      >
-        Logout
-      </button>
+      <div className="flex items-center gap-4">
+        <span className="text-sm text-gray-300">
+          {user?.email || "Logged in"}
+        </span>
+
+        <button
+          onClick={onLogout}
+          className="text-sm hover:underline"
+        >
+          Logout
+        </button>
+      </div>
     </header>
   );
 }
