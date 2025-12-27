@@ -9,9 +9,12 @@ export default function HistoryItem({ item }) {
 
       <AudioPlayer src={item.audio_url} />
 
-      <p className="text-xs text-zinc-500">
-        Generated on {date.toLocaleString()}
-      </p>
+      <p className="text-xs text-gray-400">
+        Generated on{" "}
+        {item.created_at
+            ? new Date(item.created_at).toLocaleString()
+            : "Just now"}
+      </p>  
     </div>
   );
 }
